@@ -6,8 +6,8 @@ body {
 
 @font-face {
     font-family: 'Special Elite';
-    src: url(/fonts/special-elite/special-elite.woff2) format('woff2'),
-        url(/fonts/special-elite/special-elite.woff) format('woff');
+    src: url(special-elite.woff2) format('woff2'),
+        url(special-elite.woff) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -15,8 +15,8 @@ body {
 
 @font-face {
     font-family: 'Space Mono';
-    src: url(/fonts/space-mono/space-mono-r.woff2) format('woff2'),
-        url(/fonts/space-mono/space-mono-r.woff) format('woff');
+    src: url(space-mono-r.woff2) format('woff2'),
+        url(space-mono-r.woff) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
