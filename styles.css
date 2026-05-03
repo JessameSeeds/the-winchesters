@@ -1,0 +1,902 @@
+/* global */
+body {
+    padding-top: 85px;
+    background-color: #171717;
+}
+
+@font-face {
+    font-family: 'Special Elite';
+    src: url(/fonts/special-elite/special-elite.woff2) format('woff2'),
+        url(/fonts/special-elite/special-elite.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url(/fonts/space-mono/space-mono-r.woff2) format('woff2'),
+        url(/fonts/space-mono/space-mono-r.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* paragraphs */
+p {
+    font-family: 'Space Mono';
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    line-height: 1.6;
+    text-align: left;
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 1rem 1.2rem;
+    color: #e8e0cf;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* first letters of words */
+p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #c10000;
+    float: left;
+    margin-right: 6px;
+    font-family: 'Special Elite', cursive;
+}
+
+p.card {
+    background: rgba(61, 59, 82, 0.4);
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #7e2234;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    margin: 1.5rem auto;
+    max-width: 700px;
+}
+/* my proud and joy clearfix that saves me every time xx */
+clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* images */
+#crest{
+    width: 80px;
+    margin-right: 20px;
+    align-self: center;
+}
+
+#hero {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 3;
+}
+
+#hero img {
+    width: 100vw;
+    height: auto;
+    display: block;
+}
+
+/* better contrast for h1 */
+#hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1;
+}
+
+/* hero text container */
+.hero-text {
+    position: absolute;
+    bottom: 22%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    color: #fff8e7;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+}
+
+/* hero (h1) title */
+.htitle {
+    padding: 0;
+    font-family: 'Special Elite', cursive;
+    font-size: clamp(2rem, 8vw, 5rem);
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    color: #fff8e7;
+    max-width: 90%;
+    word-wrap: break-word;
+    z-index: 2;
+    opacity: 0;
+    margin: 0; 
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* hero (h1) title animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* media query 1 */
+@media (max-width: 600px) {
+    .htitle {
+        font-size: 1.8rem;
+        padding: 10px;
+        white-space: normal;
+    }
+}
+
+/* hero tagline (h2) */
+ .hsub {
+    color: #e0d8bb;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem; 
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(1.5rem, 3vw, 1.5rem);
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 1rem 0 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    max-width: 800px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* p under the hero */
+.hpar {
+    font-size: clamp(1.3rem, 2.5vw, 1.3rem);
+    text-align: center;
+    max-width: 700px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    background: rgba(25, 25, 25, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    line-height: 1.7;
+    margin: 2rem auto;
+    font-family: 'Special Elite', cursive;
+}
+
+.hpar::first-letter {
+    float: none;
+    margin-right: 0;
+}
+
+/* hero button */
+#request {
+    font-family: 'Space Mono', monospace;
+    background-color: #7e2234;
+    color: #fff8e7;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 12px 28px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+/* hero button hover & focus */
+#request:hover, #request:focus {
+    background-color: #fff8e7;
+    color: #191919;
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+}
+
+/* hero button press effect */
+#request:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+/* hero button mobile adjustments - need to come back to when i can mentally handle it */
+@media (max-width: 600px) {
+    #request {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+/* navbar container */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff8e7;
+    overflow: visible;
+    padding: 25px;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+    text-align: center;
+    height: 50px;
+    font-family: 'Special Elite', cursive, 'Times New Roman', serif;
+    font-size: 12pt;
+}
+
+/* links inside navbar */
+.navbar a {
+    float: left;
+    font-size: 16pt;
+    color: #191919;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* remove button borders */
+.navbar a, .dropbtn {
+    border: none; 
+    outline: none;
+    background: none;
+}
+
+.navbar a:hover {
+    color: inherit;
+}
+
+/* dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    gap: 20px;
+    flex: 1;
+    overflow: visible;
+    justify-content: center;
+}
+
+/* dropdown button */
+.dropdown .dropbtn {
+    font-size: 16pt;
+    border: none;
+    outline: none;
+    color: #fff8e7;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropbtn {
+    background-color: #7e2234;
+    color: #191919 !important;
+    font-size: 16pt;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #191919;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #fff8e7;
+    color: #191919;
+    padding: 20px;
+}
+
+.dropbtn a:hover {
+    color: #191919;
+}
+
+/* links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: #fff8e7;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+/* list item decorations */
+.dropdown-content ul, .dropdown li {
+    list-style: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: #7e2234;
+    color: #fff8e7;
+}
+
+/* to show dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* services section */
+#services {
+    padding-top: 10px;
+    padding-bottom: 60px;
+}
+
+/* section title */
+.section-title {
+    font-family: 'Special Elite', cursive;
+    color: #fff5da; 
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    /* fade in from below */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* section title red underline */
+.section-title::after {
+    content: "";
+    display: block; 
+    width: 0%;
+    height: 4px;
+    background-color: #7e2234;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+    animation: underlineGrow 1s ease forwards;
+    animation-delay: 1s;
+}
+
+/* section fade-in animation */
+@keyframes introFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* services title underline animation */
+@keyframes underlineGrow {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 25%;
+    }
+}
+
+.section-title:in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title:in-view::after {
+    width: 60%;
+}
+
+/* services short explanation (h3) */
+.section-intro {
+    font-family: 'Special Elite', cursive;
+    margin: 0 auto 1rem;
+    color: #e8e0cf;
+    text-shadow: 1px 1px 4px rbga(0,0,0,0.6);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    text-align: center;
+    letter-spacing: 1px;
+    max-width: 800px;
+}
+
+/* bypass silly first letter thing i got going on */
+.section-intro::first-letter {
+    float: none;
+    margin-right: 0;
+}
+
+/* big mama container for services section */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* individual service cards */
+.service-card {
+    background: rgba(38, 36, 40, 0.85);
+    padding: 1.5rem 1rem;
+    border-left: 5px solid #7e2234; /* blood-red accent */
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card * {
+    transition: opacity 0.3s ease;
+}
+
+/* service card hover effect */
+.service-card:hover {
+    transform: translateY(-5px);
+    background: rgba(25, 25, 25, 0.9);
+}
+
+.service-card:hover * {
+    opacity: 0;
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    color: #fff5da;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    text-align: center;
+}
+
+.service-card:hover::after {
+    content: "Get " attr(data-monster) " removed →";
+    opacity: 1;
+}
+
+.service-card[data-message]:hover::after {
+    content: attr(data-message);
+}
+
+/* service headings */
+.service-card h3 {
+    font-family: 'Special Elite', cursive;
+    color: #fff5da;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/*service descriptions */
+.service-card p {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: #fff8e7;
+    line-height: 1.6;
+}
+
+.service-card p {
+    float: none;
+    margin: 0;
+}
+
+/* seal of approval section */
+#approval {
+    background-color: #fff5da;
+    color: #191919;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+/* seal of approval section differentiation */
+#approval .section-title {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    color: #191919;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* section underline cuz i gotta fix how much is underlined */
+#approval .section-title::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 4px;
+    background-color: #7e2234;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+    animation: approvalUnderline 1s ease forwards;
+}
+
+@keyframes approvalUnderline {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 75%;
+    }
+}
+
+#approval .section-intro {
+    color: #191919;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.2);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#approval .intro-paragraph {
+    color: #191919;
+    background: rgba(255,245,218,0.5);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: 700px;
+    line-height: 1.7;
+    text-shadow: none;
+}
+
+/* flex layout for approval section */
+#approval-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+#approval-image img {
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    flex: 1 1 40%;
+    object-fit: cover;
+}
+
+#approval-content {
+    flex: 1 1 55%;
+    text-align: left;
+}
+
+/* testimonials section */
+#testimonials {
+    background-color: #191919;
+    color: #fff8e7;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#testimonials .section-title {
+    margin-bottom: 3.5rem;
+    color: #fff8e7;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* testimonial card container */
+#testimonial-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* individual cards */
+.testimonial-card {
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(61,59,82,0.85), rgba(30,30,50,0.85));
+    box-shadow: 0 10px 25px rgba(0,0,0,0.65);
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* testimonial author */
+.testimonial-card span {
+    display: block;
+    margin-top: 1rem;
+    padding: 5px;
+    font-family: 'Special Elite', cursive;
+    font-size: 1rem;
+    color: #f2d8c2;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+}
+
+/* entire research section */
+#library {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* monster library section */
+#library-container {
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* dimming the image */
+#library-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
+#library-container img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* making sure the text and button go over the img */
+#overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff8e7;
+    z-index: 3;
+}
+
+#overlay-content h2.section-title {
+    font-family: 'Special Elite', cursive;
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin: 0 0 1rem 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    margin-bottom: 40px;
+}
+
+/* button styling */
+.section-button {
+    font-family: 'Space Mono', monospace;
+    background-color: #7e2234;
+    color: #fff8e7;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 12px 28px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-decoration: none; 
+    margin-top: 20px;
+}
+
+.section-button:hover, .section-button:focus {
+    background-color: #fff8e7;
+    color: #191919;
+    transform: translate(-50%, -50%) translateY(-3px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+}
+.section-button:active {
+    transform: translate(-50%, -50%) translateY(0);
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+/* bottom CTA section */
+#last-call {
+    background-color: #7e2234; /* deep blood-red */
+    color: #fff8e7;
+    text-align: center;
+    padding: 3.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#last-call .section-title {
+    font-family: 'Special Elite', cursive;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: #fff8e7;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+
+#last-call .section-intro {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
+    max-width: 800px;
+    color: #e8e0cf;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease forwards;
+    animation-delay: 0.5s;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+/* cta animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    font-family: 'Space Mono', monospace;
+    background-color: #fff8e7;
+    color: #191919;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 15px 35px;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover, .cta-button:focus {
+    background-color: #3d3b52;
+    color: #fff8e7;
+    transform: translateY(-3px);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* footer */
+#footer {
+    background: #111;
+    color: #fff8e7;
+    padding: 3rem 1.5rem 2rem;
+    margin-top: 0;
+    font-family: 'Space Mono', monospace;
+    border-top: 5px solid #7e2234;
+    position: relative;
+    z-index: 20;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* crest + tagline */
+.footer-about {
+    flex: 1 1 250px;
+}
+
+.footer-crest {
+    width: 80px;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.7)), invert(1);
+}
+
+.footer-crest {
+    filter: invert(1);
+}
+
+.footer-tagline {
+    font-family: 'Special Elite', cursive;
+    color: #fff8e7;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* links section */
+.footer-links {
+    flex: 1 1 200px;
+}
+
+.footer-links h4 {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #fff5da;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #e8e0cf;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #7e2234;
+}
+
+/* bottom strip copyright */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
